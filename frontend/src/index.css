@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.popo
+{
+  font-family:'ProductSans-Regular';
+}
+@font-face {
+  font-family: 'ProductSans-Regular';
+  src: url('New folder\\ProductSans-Regular.ttf');
+}
+
+code {
+  font-family:'ProductSans-Regular';
+}
