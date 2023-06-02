@@ -1,8 +1,8 @@
 package com.example.cypher.controllers;
 
 import com.example.cypher.ent.UserEntity;
+import com.example.cypher.response.Response;
 import com.example.cypher.service.LoginService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +20,7 @@ public class LoginController {
     }
 
  @PostMapping("/")
-    public String Login(@RequestBody UserEntity userEntity) throws NoSuchAlgorithmException {
+    public Response Login(@RequestBody UserEntity userEntity) throws NoSuchAlgorithmException {
        return loginService.Login(userEntity);
     }
 }

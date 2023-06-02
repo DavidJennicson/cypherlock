@@ -2,6 +2,7 @@ package com.example.cypher.service.impl;
 
 import com.example.cypher.ent.UserEntity;
 import com.example.cypher.repo.UserRepo;
+import com.example.cypher.response.Response;
 import com.example.cypher.service.UserService;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,7 @@ private final UserRepo userRepo;
 
     @Override
     public List<UserEntity> findAllUsers() {
+
         return userRepo.findAll();
     }
 
@@ -27,8 +29,22 @@ private final UserRepo userRepo;
     }
 
     @Override
-    public UserEntity saveUser(UserEntity userEntity) {
-        return userRepo.save(userEntity);
+    public Response saveUser(UserEntity userEntity) throws UserExistsException {
+        List <UserEntity> data=userRepo.findAll();
+        for(UserEntity userEntityelement:data)
+        {
+            System.out.println(userEntityelement.getUsername());
+            if (String.valueOf(userEntityelement.getUsername()).equals(String.valueOf(userEntity.getUsername())))
+            {
+                Response myResponse=new Response("User already exists",400);
+                return myResponse;
+            }
+
+
+        }
+        Response myResponse=new Response("User created successfully",200);
+        userRepo.save(userEntity);
+        return myResponse ;
     }
 
     @Override

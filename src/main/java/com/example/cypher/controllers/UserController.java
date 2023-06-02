@@ -1,8 +1,10 @@
 package com.example.cypher.controllers;
 
 import com.example.cypher.ent.UserEntity;
+import com.example.cypher.response.Response;
 import com.example.cypher.service.UserService;
-import jakarta.persistence.GeneratedValue;
+
+import com.example.cypher.service.impl.UserExistsException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,7 +29,7 @@ public class UserController {
         return userService.findbyId(id);
     }
     @PostMapping("/save")
-    public UserEntity saveUser(@RequestBody UserEntity userEntity)  {return userService.saveUser(userEntity); }
+    public Response saveUser(@RequestBody UserEntity userEntity) throws UserExistsException {return userService.saveUser(userEntity); }
     @PutMapping("/update")
     public UserEntity updateUser(@RequestBody  UserEntity userEntity)
     {
