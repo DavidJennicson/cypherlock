@@ -1,33 +1,27 @@
 body {
   margin: 0;
-  font-family:'SFUIDisplay-Regular';
+  font-family:'Inter Tight';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-.grad
-{
-  background-color: #8BC6EC;
-background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
 
+}
+.logo
+{
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 300;
 }
 .regular
 {
-  font-family:'SFUIDisplay-Regular';
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 400;
 }
 .bold
 {
-  font-family: 'SFUIDisplay-Semibold';
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 600;
 }
 
-@font-face {
-  font-family:'SFUIDisplay-Regular';
-  src: url('Fonts/SFUIDisplay-Regular.ttf');
-}
-@font-face
-{
-  font-family: 'SFUIDisplay-Semibold';
-  src: url('Fonts/SFUIDisplay-Semibold.ttf');
-}
+
 code {
   font-family:'ProductSans-Regular';
 }
