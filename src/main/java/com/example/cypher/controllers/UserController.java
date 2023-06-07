@@ -1,5 +1,5 @@
 package com.example.cypher.controllers;
-
+import java.io.File;
 import com.example.cypher.ent.UserEntity;
 import com.example.cypher.response.Response;
 import com.example.cypher.service.UserService;
@@ -29,7 +29,16 @@ public class UserController {
         return userService.findbyId(id);
     }
     @PostMapping("/save")
-    public Response saveUser(@RequestBody UserEntity userEntity) throws UserExistsException {return userService.saveUser(userEntity); }
+    public Response saveUser(@RequestBody UserEntity userEntity) throws UserExistsException {
+//        File f1=new File("storage\\"+String.valueOf());
+//        boolean bool = f1.mkdir();
+//        if(bool){
+//            System.out.println("Folder is created successfully");
+//        }else{
+//            System.out.println("Error Found!");
+//        }
+
+        return userService.saveUser(userEntity); }
     @PutMapping("/update")
     public UserEntity updateUser(@RequestBody  UserEntity userEntity)
     {

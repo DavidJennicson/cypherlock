@@ -1,5 +1,5 @@
 package com.example.cypher.service.impl;
-
+import java.io.File;
 import com.example.cypher.ent.UserEntity;
 import com.example.cypher.repo.UserRepo;
 import com.example.cypher.response.Response;
@@ -44,6 +44,17 @@ private final UserRepo userRepo;
         }
         Response myResponse=new Response("User created successfully",200);
         userRepo.save(userEntity);
+        Long id =Long.valueOf(userRepo.findIdByUsername(userEntity.getUsername()));
+        File f1=new File("storage\\"+String.valueOf(id));
+        boolean bool=f1.mkdir();
+        if(bool)
+        {
+            System.out.println("Successfully created");
+        }
+        else
+        {
+            System.out.println("Error");
+        }
         return myResponse ;
     }
 
